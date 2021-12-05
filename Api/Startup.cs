@@ -29,18 +29,6 @@ namespace Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy(corsPolicy,
-                builder =>
-                {
-                    builder.WithOrigins(Configuration["CorsUrl"])
-                            .AllowAnyMethod()
-                            .AllowAnyHeader()
-                            .AllowCredentials();
-                });
-            });
-
             //add the db context with the connection string
             services.AddDbContextPool<StarterDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("StarterConn"))
@@ -56,7 +44,7 @@ namespace Api
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(corsPolicy);
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
