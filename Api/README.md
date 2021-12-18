@@ -9,5 +9,4 @@ dotnet user-secrets list
 
 Configurations needed for this project:
 
-APIurl:  https://localhost:44381/api/
-
+ConnectionStrings:StarterConn  //this is the database connection string
